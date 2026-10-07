@@ -1,0 +1,818 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glucobalance Techi | Salud & Bienestar Natural - La Paz, Bolivia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        verdesalud: {
+                            DEFAULT: '#2E7D32',
+                            50: '#E8F5E9',
+                            100: '#C8E6C9',
+                            600: '#2E7D32',
+                            700: '#1B5E20',
+                            800: '#0D3B10'
+                        },
+                        vino: {
+                            DEFAULT: '#800020',
+                            50: '#F9E6EB',
+                            100: '#F0B8C8',
+                            600: '#800020',
+                            700: '#5C0017'
+                        },
+                        cremasuave: '#FDFBF7',
+                        beige: '#F2EBDC',
+                        warmwhite: '#FFFFFF',
+                        dorado: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#A37E3A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FDFBF7;
+            color: #1A2E1C;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(13, 59, 16, 0.88) 0%, rgba(128, 0, 32, 0.75) 100%);
+        }
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F2EBDC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E7D32;
+            border-radius: 4px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-verdesalud selection:text-white">
+
+    <!-- Barra Superior de Información -->
+    <div class="bg-verdesalud-800 text-cremasuave text-xs py-2 px-4 font-medium border-b border-verdesalud-700">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-truck-fast text-dorado"></i>
+                <span>Envíos Garatizados en <strong class="text-dorado-light">La Paz y a Nivel Nacional (Bolivia)</strong></span>
+            </span>
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/59173200661" target="_blank" class="hover:text-dorado transition-colors flex items-center gap-1 font-semibold">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-sm"></i> 73200661
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Encabezado / Navbar -->
+    <header class="sticky top-0 z-40 bg-warmwhite/95 backdrop-blur-md border-b border-beige shadow-xs">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo y Marca -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-full border-2 border-dorado flex items-center justify-center bg-verdesalud-50 text-verdesalud group-hover:bg-verdesalud group-hover:text-white transition-all shadow-sm">
+                    <i class="fa-solid fa-leaf text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-serif-custom text-xl sm:text-2xl font-bold tracking-tight text-verdesalud-800 block leading-none">Glucobalance <span class="text-vino">Techi</span></span>
+                    <span class="text-[9px] tracking-[0.2em] text-verdesalud font-bold uppercase block mt-1">Salud & Bienestar Natural</span>
+                </div>
+            </a>
+
+            <!-- Menú Navegación Desktop -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold text-verdesalud-800 uppercase tracking-wider">
+                <a href="#inicio" class="hover:text-vino transition-colors">Inicio</a>
+                <a href="#catalogo" class="hover:text-vino transition-colors">Catálogo</a>
+                <a href="#beneficios" class="hover:text-vino transition-colors">Beneficios</a>
+                <a href="#garantia" class="hover:text-vino transition-colors">Envíos</a>
+            </nav>
+
+            <!-- Botón de Carrito Flotante y Menú Móvil -->
+            <div class="flex items-center space-x-3">
+                <button type="button" id="btn-open-cart" class="relative bg-vino hover:bg-vino-700 text-white px-4 py-2.5 rounded-full flex items-center gap-2.5 shadow-md transition-all active:scale-95 cursor-pointer">
+                    <i class="fa-solid fa-cart-shopping text-sm"></i>
+                    <span class="hidden sm:inline text-xs font-bold uppercase tracking-wider">Mi Pedido</span>
+                    <span id="cart-badge" class="bg-dorado text-verdesalud-800 font-extrabold text-xs w-5 h-5 rounded-full flex items-center justify-center shadow-xs">0</span>
+                </button>
+                <button type="button" id="btn-mobile-toggle" class="md:hidden text-verdesalud-800 text-2xl p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-warmwhite border-b border-beige px-6 py-4 space-y-3 text-verdesalud-800 font-medium text-sm">
+            <a href="#inicio" class="mobile-nav-link block py-2 border-b border-beige/60">Inicio</a>
+            <a href="#catalogo" class="mobile-nav-link block py-2 border-b border-beige/60">Catálogo de Suplementos</a>
+            <a href="#beneficios" class="mobile-nav-link block py-2 border-b border-beige/60">Beneficios Naturales</a>
+            <a href="#garantia" class="mobile-nav-link block py-2">Información de Envío</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="inicio" class="relative min-h-[520px] lg:min-h-[600px] flex items-center justify-center bg-verdesalud-800 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1600&q=80" alt="Suplementos Naturales Glucobalance" class="w-full h-full object-cover object-center opacity-40">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="container mx-auto px-4 py-16 relative z-10 max-w-5xl text-center md:text-left">
+            <div class="md:w-3/4 space-y-6">
+                <span class="inline-flex items-center gap-2 glass-badge text-dorado-light px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm">
+                    <i class="fa-solid fa-certificate text-dorado"></i> 100% Natural • Calidad Garantizada
+                </span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif-custom font-bold leading-tight text-cremasuave">
+                    Apoya tu salud de forma natural y consciente con el poder de la naturaleza.
+                </h1>
+                <p class="text-beige/95 text-sm sm:text-base font-light max-w-2xl leading-relaxed">
+                    Descubre <strong class="text-white font-semibold">GLUCOBALANCE Fortificado (Actilife)</strong>. Formulado con Nopal, Ruibarbo, Guayaba y Moringa para ayudarte a regular el azúcar en sangre, fortalecer tus defensas y potenciar tu vitalidad diaria.
+                </p>
+                <div class="pt-3 flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+                    <a href="#catalogo" class="w-full sm:w-auto bg-dorado hover:bg-dorado-dark text-verdesalud-800 font-bold px-8 py-3.5 rounded-full shadow-lg transition-all text-xs tracking-wider uppercase flex items-center justify-center gap-2">
+                        <span>VER CATÁLOGO & OFERTAS</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <a href="https://wa.me/59173200661?text=Hola%20Glucobalance%20Techi,%20quisiera%20más%20información%20sobre%20Glucobalance" target="_blank" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 py-3.5 rounded-full transition-all text-xs font-semibold flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-green-400 text-base"></i>
+                        <span>Consultar a un Asesor</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios Clave -->
+    <section id="beneficios" class="py-12 bg-verdesalud-50 border-y border-verdesalud-100">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-8">
+                <span class="text-vino text-xs font-bold uppercase tracking-[0.25em]">Fórmula 100% Orgánica</span>
+                <h2 class="text-2xl sm:text-3xl font-serif-custom font-bold text-verdesalud-800 mt-1">¿Por qué elegir Glucobalance?</h2>
+                <div class="w-16 h-1 bg-dorado mx-auto my-2 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-warmwhite p-4 rounded-2xl border border-beige shadow-xs text-center space-y-2">
+                    <div class="w-10 h-10 rounded-full bg-verdesalud-50 text-verdesalud flex items-center justify-center text-lg mx-auto">
+                        <i class="fa-solid fa-vial"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-verdesalud-800">Regula Azúcar</h3>
+                    <p class="text-[11px] text-gray-600 leading-snug">Ayuda a nivelar la glucosa en sangre de forma continua.</p>
+                </div>
+                <div class="bg-warmwhite p-4 rounded-2xl border border-beige shadow-xs text-center space-y-2">
+                    <div class="w-10 h-10 rounded-full bg-verdesalud-50 text-verdesalud flex items-center justify-center text-lg mx-auto">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-verdesalud-800">Sistema Inmune</h3>
+                    <p class="text-[11px] text-gray-600 leading-snug">Fortalece tus defensas ante desgastes y virus.</p>
+                </div>
+                <div class="bg-warmwhite p-4 rounded-2xl border border-beige shadow-xs text-center space-y-2">
+                    <div class="w-10 h-10 rounded-full bg-verdesalud-50 text-verdesalud flex items-center justify-center text-lg mx-auto">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-verdesalud-800">Metabolismo</h3>
+                    <p class="text-[11px] text-gray-600 leading-snug">Mejora la digestión y activa el metabolismo.</p>
+                </div>
+                <div class="bg-warmwhite p-4 rounded-2xl border border-beige shadow-xs text-center space-y-2">
+                    <div class="w-10 h-10 rounded-full bg-verdesalud-50 text-verdesalud flex items-center justify-center text-lg mx-auto">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-verdesalud-800">Antioxidantes</h3>
+                    <p class="text-[11px] text-gray-600 leading-snug">Rico en vitaminas A, C, E y minerales esenciales.</p>
+                </div>
+                <div class="bg-warmwhite p-4 rounded-2xl border border-beige shadow-xs text-center space-y-2 sm:col-span-2 lg:col-span-1">
+                    <div class="w-10 h-10 rounded-full bg-verdesalud-50 text-verdesalud flex items-center justify-center text-lg mx-auto">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-verdesalud-800">Salud Cardíaca</h3>
+                    <p class="text-[11px] text-gray-600 leading-snug">Apoya la buena circulación y la salud del corazón.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <section id="catalogo" class="py-16 bg-cremasuave">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-verdesalud text-xs font-extrabold uppercase tracking-[0.2em] block mb-1">Catálogo Oficial</span>
+                <h2 class="text-3xl sm:text-4xl font-serif-custom font-bold text-verdesalud-800">Productos Destacados</h2>
+                <div class="w-16 h-1 bg-dorado mx-auto my-3 rounded-full"></div>
+                <p class="text-gray-600 text-xs sm:text-sm">Selecciona tu suplemento original con garantía de autenticidad Actilife.</p>
+            </div>
+
+            <!-- Filtros de Categoría -->
+            <div class="max-w-4xl mx-auto mb-8">
+                <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-2 pt-1 no-scrollbar" id="category-bar">
+                    <button type="button" class="btn-category active px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-all bg-verdesalud text-white border-verdesalud" data-category="Todos">Todos</button>
+                    <button type="button" class="btn-category px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-all bg-warmwhite text-verdesalud-800 border-beige hover:border-verdesalud" data-category="Control de Azúcar">Control de Azúcar</button>
+                    <button type="button" class="btn-category px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-all bg-warmwhite text-verdesalud-800 border-beige hover:border-verdesalud" data-category="Salud Digestiva">Salud Digestiva</button>
+                    <button type="button" class="btn-category px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-all bg-warmwhite text-verdesalud-800 border-beige hover:border-verdesalud" data-category="Sistema Inmunológico">Sistema Inmunológico</button>
+                    <button type="button" class="btn-category px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap border transition-all bg-warmwhite text-verdesalud-800 border-beige hover:border-verdesalud" data-category="Packs & Ofertas">Packs & Ofertas</button>
+                </div>
+            </div>
+
+            <!-- Grilla de productos -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <!-- Inyección dinámica JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Informativo de Envíos -->
+    <section id="garantia" class="py-12 bg-verdesalud-800 text-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fa-solid fa-truck-ramp-box text-dorado text-3xl mb-3"></i>
+                    <h3 class="font-bold text-sm text-cremasuave">Envíos Rápidos La Paz & El Alto</h3>
+                    <p class="text-xs text-beige/80 mt-1">Entrega directa en puerta o punto de encuentro coordinado.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fa-solid fa-map-location-dot text-dorado text-3xl mb-3"></i>
+                    <h3 class="font-bold text-sm text-cremasuave">Envíos a Nivel Nacional</h3>
+                    <p class="text-xs text-beige/80 mt-1">Despachos diarios a Cochabamba, Santa Cruz, Oruro, Potosí, Tarija, Sucre, Beni y Pando.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fa-solid fa-qrcode text-dorado text-3xl mb-3"></i>
+                    <h3 class="font-bold text-sm text-cremasuave">Múltiples Métodos de Pago</h3>
+                    <p class="text-xs text-beige/80 mt-1">Pago por QR Simple (Todos los bancos) o Efectivo contra entrega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventana Emergente / Modal de Detalle de Producto -->
+    <div id="modal-product" class="fixed inset-0 z-50 bg-verdesalud-800/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-warmwhite rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-beige relative">
+            <button type="button" id="btn-close-product-modal" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-cremasuave text-verdesalud-800 hover:bg-vino hover:text-white flex items-center justify-center transition-colors shadow-md">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2">
+                <div class="h-64 sm:h-full relative bg-verdesalud-50">
+                    <img id="modal-img" src="" alt="Producto" class="w-full h-full object-cover rounded-t-3xl sm:rounded-l-3xl sm:rounded-tr-none">
+                    <span id="modal-tag" class="absolute top-3 left-3 bg-vino text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">100% NATURAL</span>
+                </div>
+                <div class="p-6 flex flex-col justify-between space-y-4">
+                    <div>
+                        <span id="modal-category" class="text-[10px] uppercase font-bold text-verdesalud tracking-wider"></span>
+                        <h3 id="modal-title" class="text-2xl font-serif-custom font-bold text-verdesalud-800 mt-1"></h3>
+                        <div class="flex items-baseline gap-2 my-2">
+                            <span id="modal-price" class="text-2xl font-extrabold text-vino"></span>
+                            <span class="text-xs text-gray-500 font-medium">(Incluye IVA)</span>
+                        </div>
+                        
+                        <div class="space-y-2 text-xs text-gray-700">
+                            <p><strong>Composición:</strong> <span id="modal-composition" class="italic text-verdesalud-800 font-semibold"></span></p>
+                            <p id="modal-desc" class="leading-relaxed"></p>
+                            <div class="pt-2">
+                                <strong class="block text-verdesalud-800 mb-1">Beneficios Principales:</strong>
+                                <ul id="modal-benefits-list" class="space-y-1 list-disc list-inside text-[11px] text-gray-600">
+                                    <!-- Inyección dinámica -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-3 border-t border-beige">
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center border border-beige rounded-full bg-cremasuave p-1">
+                                <button type="button" id="modal-qty-minus" class="w-7 h-7 rounded-full bg-warmwhite font-bold text-verdesalud-800 hover:bg-beige">-</button>
+                                <span id="modal-qty-val" class="w-8 text-center font-bold text-xs">1</span>
+                                <button type="button" id="modal-qty-plus" class="w-7 h-7 rounded-full bg-warmwhite font-bold text-verdesalud-800 hover:bg-beige">+</button>
+                            </div>
+                            <button type="button" id="btn-add-modal-cart" class="flex-1 bg-verdesalud hover:bg-verdesalud-700 text-white font-bold py-3 px-4 rounded-full text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>Agregar al Carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Emergente / Sidebar del Carrito y Recopilación de Datos -->
+    <div id="modal-cart" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div id="cart-backdrop" class="absolute inset-0 bg-verdesalud-800/60 backdrop-blur-xs"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-warmwhite shadow-2xl flex flex-col justify-between border-l border-beige">
+                <!-- Header Carrito -->
+                <div class="p-4 border-b border-beige flex items-center justify-between bg-cremasuave">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-verdesalud text-lg"></i>
+                        <h3 class="font-serif-custom text-xl font-bold text-verdesalud-800">Tu Pedido</h3>
+                    </div>
+                    <button type="button" id="btn-close-cart" class="text-gray-500 hover:text-vino p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Lista de Ítems e Formulario -->
+                <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                    <div id="cart-items" class="space-y-3">
+                        <!-- Renderizado de productos agregados -->
+                    </div>
+
+                    <div id="cart-empty" class="text-center py-12 space-y-3">
+                        <i class="fa-solid fa-leaf text-4xl text-beige"></i>
+                        <p class="text-xs text-gray-500 font-semibold">Tu carrito de compras está vacío.</p>
+                        <a href="#catalogo" onclick="toggleCartModal(false)" class="inline-block bg-verdesalud text-white text-xs px-4 py-2 rounded-full uppercase font-bold">Ver Catálogo</a>
+                    </div>
+
+                    <!-- Formulario Datos Obligatorios del Cliente -->
+                    <form id="checkout-form" class="hidden space-y-3 pt-4 border-t border-beige">
+                        <div class="bg-verdesalud-50 p-3 rounded-2xl border border-verdesalud-100">
+                            <h4 class="font-serif-custom text-sm font-bold text-verdesalud-800 flex items-center gap-1.5 mb-2">
+                                <i class="fa-solid fa-address-card text-vino text-xs"></i> Datos de Entrega y Envío
+                            </h4>
+
+                            <div class="space-y-2.5 text-xs">
+                                <div>
+                                    <label class="block font-bold text-verdesalud-800 mb-1">Nombre Completo *</label>
+                                    <input type="text" id="cust-name" required placeholder="Ej. Juan Pérez" class="w-full p-2.5 rounded-xl border border-beige bg-warmwhite focus:ring-2 focus:ring-verdesalud focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-bold text-verdesalud-800 mb-1">Teléfono / WhatsApp *</label>
+                                    <input type="tel" id="cust-phone" required placeholder="Ej. 71512345" class="w-full p-2.5 rounded-xl border border-beige bg-warmwhite focus:ring-2 focus:ring-verdesalud focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-bold text-verdesalud-800 mb-1">Modalidad de Envío *</label>
+                                    <div class="space-y-1.5">
+                                        <label class="border border-beige rounded-xl p-2 flex items-center gap-2 cursor-pointer bg-warmwhite text-[11px] font-medium">
+                                            <input type="radio" name="delivery_type" value="Delivery La Paz/El Alto" checked class="accent-verdesalud">
+                                            <span>Envío a Domicilio (La Paz / El Alto)</span>
+                                        </label>
+                                        <label class="border border-beige rounded-xl p-2 flex items-center gap-2 cursor-pointer bg-warmwhite text-[11px] font-medium">
+                                            <input type="radio" name="delivery_type" value="Envío Nacional Bolivia" class="accent-verdesalud">
+                                            <span>Envío Nacional a otros Departamentos</span>
+                                        </label>
+                                        <label class="border border-beige rounded-xl p-2 flex items-center gap-2 cursor-pointer bg-warmwhite text-[11px] font-medium">
+                                            <input type="radio" name="delivery_type" value="Retiro en Tienda / Punto Encuentro" class="accent-verdesalud">
+                                            <span>Retiro en Punto de Encuentro</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="field-address">
+                                    <label class="block font-bold text-verdesalud-800 mb-1">Dirección de Entrega / Ciudad *</label>
+                                    <input type="text" id="cust-address" placeholder="Ej. Calle Murillo Nro 1020, Zona Centro, La Paz" class="w-full p-2.5 rounded-xl border border-beige bg-warmwhite focus:ring-2 focus:ring-verdesalud focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block font-bold text-verdesalud-800 mb-1">Método de Pago Preferido *</label>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <label class="border border-beige rounded-xl p-2 flex items-center gap-1.5 cursor-pointer bg-warmwhite text-[11px] font-medium">
+                                            <input type="radio" name="payment_method" value="Pago por QR / Transferencia" checked class="accent-verdesalud">
+                                            <span>Pago por QR</span>
+                                        </label>
+                                        <label class="border border-beige rounded-xl p-2 flex items-center gap-1.5 cursor-pointer bg-warmwhite text-[11px] font-medium">
+                                            <input type="radio" name="payment_method" value="Efectivo al recibir" class="accent-verdesalud">
+                                            <span>Efectivo</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer Carrito y Envío a WhatsApp -->
+                <div id="cart-footer" class="p-4 border-t border-beige bg-cremasuave space-y-3 hidden">
+                    <div class="space-y-1 text-xs text-gray-700">
+                        <div class="flex justify-between">
+                            <span>Subtotal:</span>
+                            <span id="summary-subtotal" class="font-bold text-verdesalud-800">Bs. 0</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-bold text-verdesalud-800 pt-1 border-t border-beige">
+                            <span>Total General:</span>
+                            <span id="summary-total" class="text-vino font-serif-custom text-xl">Bs. 0</span>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btn-submit-whatsapp" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-3.5 px-4 rounded-full text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>FINALIZAR COMPRA POR WHATSAPP</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Global -->
+    <footer class="bg-verdesalud-800 text-cremasuave py-10 border-t border-verdesalud-700">
+        <div class="container mx-auto px-4 text-center space-y-4">
+            <span class="font-serif-custom text-2xl font-bold tracking-tight text-cremasuave block">Glucobalance Techi</span>
+            <p class="text-xs text-beige/80 max-w-md mx-auto">Suplementos naturales y productos de salud garantizados para elevar tu calidad de vida en Bolivia.</p>
+            <div class="text-xs text-beige/50 pt-4 border-t border-verdesalud-700/60">
+                &copy; 2026 Glucobalance Techi • La Paz, Bolivia. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de Funcionalidad JavaScript Encapsulado -->
+    <script>
+        // Array Oficial de Productos Glucobalance Techi
+        const PRODUCTS = [
+            {
+                id: 1,
+                name: "GLUCOBALANCE Fortificado (Actilife)",
+                category: "Control de Azúcar",
+                price: 350,
+                image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
+                composition: "Nopal, Ruibarbo, Guayaba, Moringa. 100% Natural.",
+                description: "Suplemento fortificado de alta pureza diseñado para regular los niveles de azúcar en sangre y activar el metabolismo.",
+                benefits: [
+                    "Ayuda a regular los niveles de azúcar en sangre.",
+                    "Fortalece el sistema inmunológico.",
+                    "Mejora la digestión y el metabolismo.",
+                    "Rico en antioxidantes, vitaminas y minerales.",
+                    "Apoya la salud del corazón y la circulación."
+                ]
+            },
+            {
+                id: 2,
+                name: "Pack 2x GLUCOBALANCE + Envío Gratis",
+                category: "Packs & Ofertas",
+                price: 650,
+                image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?auto=format&fit=crop&w=600&q=80",
+                composition: "2 Unidades de Glucobalance Fortificado Actilife.",
+                description: "Tratamiento completo para 2 meses de consumo continuo con descuento especial y envío sin costo a nivel nacional.",
+                benefits: [
+                    "Tratamiento intensivo de 60 días.",
+                    "Ahorro directo de 50 Bs.",
+                    "Envío totalmente gratuito en Bolivia."
+                ]
+            },
+            {
+                id: 3,
+                name: "ActiMoringa Concentrada Natural",
+                category: "Sistema Inmunológico",
+                price: 220,
+                image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80",
+                composition: "100% Extracto Pulverizado de Moringa Oleifera.",
+                description: "Puro concentrado superalimentario rico en hierro, calcio y aminoácidos para combatir el cansancio.",
+                benefits: [
+                    "Suministra energía natural sostenida.",
+                    "Refuerza defensas inmunológicas.",
+                    "Propiedades antiinflamatorias."
+                ]
+            },
+            {
+                id: 4,
+                name: "Pack Familiar Glucobalance (3 Unidades)",
+                category: "Packs & Ofertas",
+                price: 950,
+                image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80",
+                composition: "3 Unidades de Glucobalance Fortificado.",
+                description: "Opción económica para tratamiento continuo familiar o de largo plazo.",
+                benefits: [
+                    "Máximo ahorro por unidad.",
+                    "Ideal para control continuo diario.",
+                    "Incluye asesoría personalizada por WhatsApp."
+                ]
+            }
+        ];
+
+        // Estado global de la aplicación
+        let cart = [];
+        let currentCategory = 'Todos';
+        let modalSelectedProduct = null;
+        let modalQuantity = 1;
+
+        // Inicialización segura del DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            setupEventListeners();
+        });
+
+        // Event Listeners y Handlers
+        function setupEventListeners() {
+            // Filtros de categoría
+            document.getElementById('category-bar').addEventListener('click', (e) => {
+                if (e.target.classList.contains('btn-category')) {
+                    document.querySelectorAll('.btn-category').forEach(b => {
+                        b.classList.remove('bg-verdesalud', 'text-white', 'border-verdesalud');
+                        b.classList.add('bg-warmwhite', 'text-verdesalud-800', 'border-beige');
+                    });
+                    e.target.classList.add('bg-verdesalud', 'text-white', 'border-verdesalud');
+                    e.target.classList.remove('bg-warmwhite', 'text-verdesalud-800', 'border-beige');
+                    
+                    currentCategory = e.target.dataset.category;
+                    renderProducts();
+                }
+            });
+
+            // Abrir / Cerrar Carrito
+            document.getElementById('btn-open-cart').addEventListener('click', () => toggleCartModal(true));
+            document.getElementById('btn-close-cart').addEventListener('click', () => toggleCartModal(false));
+            document.getElementById('cart-backdrop').addEventListener('click', () => toggleCartModal(false));
+
+            // Menú Móvil
+            document.getElementById('btn-mobile-toggle').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+            });
+
+            // Modal Producto - Controles de cantidad y cierre
+            document.getElementById('btn-close-product-modal').addEventListener('click', closeProductModal);
+            document.getElementById('modal-qty-minus').addEventListener('click', () => {
+                if (modalQuantity > 1) {
+                    modalQuantity--;
+                    document.getElementById('modal-qty-val').innerText = modalQuantity;
+                }
+            });
+            document.getElementById('modal-qty-plus').addEventListener('click', () => {
+                modalQuantity++;
+                document.getElementById('modal-qty-val').innerText = modalQuantity;
+            });
+            document.getElementById('btn-add-modal-cart').addEventListener('click', () => {
+                if (modalSelectedProduct) {
+                    addToCart(modalSelectedProduct.id, modalQuantity);
+                    closeProductModal();
+                    toggleCartModal(true);
+                }
+            });
+
+            // Alternar campo de dirección según el tipo de envío
+            document.querySelectorAll('input[name="delivery_type"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const addressField = document.getElementById('field-address');
+                    if (e.target.value.includes('Retiro')) {
+                        addressField.classList.add('hidden');
+                    } else {
+                        addressField.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Finalizar Pedido WhatsApp
+            document.getElementById('btn-submit-whatsapp').addEventListener('click', submitOrderToWhatsApp);
+        }
+
+        // Renderizar catálogo de productos
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const filtered = PRODUCTS.filter(p => currentCategory === 'Todos' || p.category === currentCategory);
+
+            grid.innerHTML = '';
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-warmwhite rounded-2xl border border-beige shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between";
+                card.innerHTML = `
+                    <div class="relative h-52 overflow-hidden cursor-pointer" onclick="openProductModal(${p.id})">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2.5 left-2.5 bg-verdesalud text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase shadow-xs">${p.category}</span>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <h3 class="font-serif-custom text-base font-bold text-verdesalud-800 cursor-pointer hover:text-vino" onclick="openProductModal(${p.id})">${p.name}</h3>
+                            <p class="text-[11px] text-gray-500 italic mt-1 line-clamp-2">${p.composition}</p>
+                        </div>
+                        <div class="pt-2 border-t border-beige flex items-center justify-between">
+                            <span class="text-lg font-bold text-vino">Bs. ${p.price}</span>
+                            <div class="flex items-center gap-1.5">
+                                <button type="button" onclick="openProductModal(${p.id})" class="p-2 text-xs rounded-full border border-beige text-verdesalud-800 hover:bg-beige" title="Ver Detalle">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                                <button type="button" onclick="addToCart(${p.id}, 1)" class="bg-verdesalud hover:bg-verdesalud-700 text-white text-xs px-3 py-2 rounded-full font-bold flex items-center gap-1 shadow-xs">
+                                    <i class="fa-solid fa-plus text-[10px]"></i>
+                                    <span>Agregar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Abrir Modal de Producto
+        function openProductModal(id) {
+            const product = PRODUCTS.find(p => p.id === id);
+            if (!product) return;
+
+            modalSelectedProduct = product;
+            modalQuantity = 1;
+
+            document.getElementById('modal-img').src = product.image;
+            document.getElementById('modal-category').innerText = product.category;
+            document.getElementById('modal-title').innerText = product.name;
+            document.getElementById('modal-price').innerText = `Bs. ${product.price}`;
+            document.getElementById('modal-composition').innerText = product.composition;
+            document.getElementById('modal-desc').innerText = product.description;
+            document.getElementById('modal-qty-val').innerText = modalQuantity;
+
+            const benefitsList = document.getElementById('modal-benefits-list');
+            benefitsList.innerHTML = '';
+            product.benefits.forEach(b => {
+                const li = document.createElement('li');
+                li.innerText = b;
+                benefitsList.appendChild(li);
+            });
+
+            document.getElementById('modal-product').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('modal-product').classList.add('hidden');
+        }
+
+        // Funciones del Carrito
+        function addToCart(productId, qty = 1) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    qty: qty
+                });
+            }
+            updateCartUI();
+        }
+
+        function updateCartQty(index, delta) {
+            if (cart[index]) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(index) {
+            if (cart[index]) {
+                cart.splice(index, 1);
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const cartItemsEl = document.getElementById('cart-items');
+            const cartBadge = document.getElementById('cart-badge');
+            const cartEmpty = document.getElementById('cart-empty');
+            const checkoutForm = document.getElementById('checkout-form');
+            const cartFooter = document.getElementById('cart-footer');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            cartBadge.innerText = totalItems;
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '';
+                cartEmpty.classList.remove('hidden');
+                checkoutForm.classList.add('hidden');
+                cartFooter.classList.add('hidden');
+                return;
+            }
+
+            cartEmpty.classList.add('hidden');
+            checkoutForm.classList.remove('hidden');
+            cartFooter.classList.remove('hidden');
+
+            cartItemsEl.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemSub = item.price * item.qty;
+                total += itemSub;
+
+                const div = document.createElement('div');
+                div.className = "flex items-center gap-3 p-2.5 bg-cremasuave rounded-2xl border border-beige shadow-xs";
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-xl object-cover">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-bold text-verdesalud-800 truncate">${item.name}</h4>
+                        <p class="text-[11px] text-vino font-bold">Bs. ${item.price}</p>
+                    </div>
+                    <div class="flex items-center gap-1 border border-beige rounded-lg bg-warmwhite px-1">
+                        <button type="button" onclick="updateCartQty(${index}, -1)" class="px-1.5 text-xs font-bold text-verdesalud-800 hover:text-vino">-</button>
+                        <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+                        <button type="button" onclick="updateCartQty(${index}, 1)" class="px-1.5 text-xs font-bold text-verdesalud-800 hover:text-vino">+</button>
+                    </div>
+                    <button type="button" onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600 p-1 text-xs">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                `;
+                cartItemsEl.appendChild(div);
+            });
+
+            document.getElementById('summary-subtotal').innerText = `Bs. ${total}`;
+            document.getElementById('summary-total').innerText = `Bs. ${total}`;
+        }
+
+        function toggleCartModal(open) {
+            const modal = document.getElementById('modal-cart');
+            if (open) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Envío directo de datos a WhatsApp
+        function submitOrderToWhatsApp() {
+            if (cart.length === 0) return;
+
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const deliveryType = document.querySelector('input[name="delivery_type"]:checked').value;
+            const address = document.getElementById('cust-address').value.trim();
+            const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
+            if (!name || !phone) {
+                alert('Por favor, ingresa tu Nombre y Teléfono para coordinar el envío.');
+                return;
+            }
+
+            if (!deliveryType.includes('Retiro') && !address) {
+                alert('Por favor, ingresa la Dirección de envío o tu Ciudad.');
+                return;
+            }
+
+            let total = 0;
+            let detail = '';
+
+            cart.forEach(item => {
+                const sub = item.price * item.qty;
+                total += sub;
+                detail += `• ${item.qty}x ${item.name} - Bs. ${sub}\n`;
+            });
+
+            let msg = `🌿 *NUEVO PEDIDO - GLUCOBALANCE TECHI* 🌿\n`;
+            msg += `📍 *La Paz, Bolivia*\n`;
+            msg += `--------------------------------------\n`;
+            msg += `👤 *Cliente:* ${name}\n`;
+            msg += `📱 *Teléfono:* ${phone}\n`;
+            msg += `🚚 *Entrega:* ${deliveryType}\n`;
+            if (!deliveryType.includes('Retiro')) {
+                msg += `🏢 *Dirección:* ${address}\n`;
+            }
+            msg += `💳 *Método de Pago:* ${paymentMethod}\n`;
+            msg += `--------------------------------------\n`;
+            msg += `🛍️ *DETALLE DEL PEDIDO:*\n${detail}`;
+            msg += `--------------------------------------\n`;
+            msg += `💰 *TOTAL A PAGAR:* *Bs. ${total}*\n\n`;
+            msg += `Hola Glucobalance Techi, quedo atento a la confirmación de mi pedido.`;
+
+            const url = `https://wa.me/59173200661?text=${encodeURIComponent(msg)}`;
+            
+            // Limpieza tras envío
+            cart = [];
+            updateCartUI();
+            toggleCartModal(false);
+
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
+```
